@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  before_action :skip_non_admin_user, except: %i[index]
+  before_action :authenticate_user!
   before_action :set_job, only: %i[ show edit update destroy ]
 
   # GET /jobs or /jobs.json
@@ -65,5 +67,9 @@ class JobsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def job_params
       params.require(:job).permit(:company, :position, :salary, :paid_at)
+    end
+
+    def skip_non_admin_user
+      redirect_to root_path unless current_user.admin?
     end
 end
