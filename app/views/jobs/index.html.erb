@@ -31,7 +31,7 @@
             <td><%= button_to 'Paid', root_path, class: "btn btn-success disabled" %></td>
           <% else %>
             <td><%= "Available" %></td>
-            <td><%= button_to 'Pay', root_path, class: "btn btn-primary" %></td>
+            <td><%= button_to 'Pay', checkouts_path, class: "btn btn-primary" %></td>
           <% end %>
         <% end %>
       </tr>
