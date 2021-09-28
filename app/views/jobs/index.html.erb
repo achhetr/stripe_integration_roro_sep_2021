@@ -20,7 +20,7 @@
       <tr>
         <td><%= job.company %></td>
         <td><%= job.position %></td>
-        <td><%= job.salary %></td>
+        <td><%= number_to_currency(job.salary, precision: 0) %></td>
         <% if current_user.admin? %>
           <td><%= link_to 'Show', job %></td>
           <td><%= link_to 'Edit', edit_job_path(job) %></td>
@@ -31,7 +31,7 @@
             <td><%= button_to 'Paid', root_path, class: "btn btn-success disabled" %></td>
           <% else %>
             <td><%= "Available" %></td>
-            <td><%= button_to 'Pay', root_path, class: "btn btn-primary" %></td>
+            <td><%= button_to 'Pay', checkout_path(job_id: job), class: "btn btn-primary" %></td>
           <% end %>
         <% end %>
       </tr>
