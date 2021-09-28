@@ -32,6 +32,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # Login/Signup
 gem 'devise'
 gem 'bcrypt'
+# Checkout/Payment
+gem 'pay', '~> 3.0'
+gem 'stripe', '>= 2.8', '< 6.0'
 ##
 
 group :development, :test do
